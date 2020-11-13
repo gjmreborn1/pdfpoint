@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import LoginForm from "./components/LoginForm";
+import PageNotFound from "./components/PageNotFound";
+import LawyerDashboard from "./components/LawyerDashboard";
+import ParticipantDashboard from "./components/ParticipantDashboard";
+import { Route, Switch } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <Switch>
+            <Route path="/" component={LoginForm} exact />
+            <Route path="/lawyer" component={LawyerDashboard} exact />
+            <Route path="/participant" component={ParticipantDashboard} exact />
+            <Route component={PageNotFound} />
+        </Switch>
+    );
+};
 
 export default App;

@@ -20,4 +20,17 @@ Participant logs in, and:
 
 # Libraries
 * React
+* React router
+* Bootstrap
 * Pdfjs
+
+# Authorization
+Authorization is done by hard-coded two accounts for now.
+  
+Lawyer account credentials:
+* login: `lawyer`
+* password: `123456`
+
+Participant account credentials:
+* login: `participant`
+* password: `xyzabc` 
