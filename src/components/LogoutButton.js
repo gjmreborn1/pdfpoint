@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import Button from "react-bootstrap/Button";
-import Redirect from "react-router-dom";
+import {Redirect} from "react-router-dom";
 
-const LogoutButton = () => {
+const LogoutButton = ({className}) => {
     const [doRedirect, setDoRedirect] = useState(false);
 
     if(doRedirect) {
@@ -11,7 +11,7 @@ const LogoutButton = () => {
         )
     } else {
         return (
-            <Button block size="lg" type="button" onClick={() => setDoRedirect(true)}>
+            <Button className={className} block size="lg" type="button" onClick={() => setDoRedirect(true)}>
                 Logout
             </Button>
         );
