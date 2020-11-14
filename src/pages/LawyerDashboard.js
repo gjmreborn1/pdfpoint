@@ -1,7 +1,7 @@
 import React, {createRef, useState} from "react";
 import "./LawyerDashboard.css";
-import LogoutButton from "./LogoutButton";
-import PdfRenderer from "./PdfRenderer";
+import LogoutButton from "../components/auth/LogoutButton";
+import PdfRenderer from "../components/pdf/PdfRenderer";
 
 let uploadedPdf = "";
 

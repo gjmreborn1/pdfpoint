@@ -1,8 +1,8 @@
 import React from "react";
-import LoginForm from "./components/LoginForm";
-import PageNotFound from "./components/PageNotFound";
-import LawyerDashboard from "./components/LawyerDashboard";
-import ParticipantDashboard from "./components/ParticipantDashboard";
+import LoginForm from "./components/auth/LoginForm";
+import PageNotFound from "./pages/PageNotFound";
+import LawyerDashboard from "./pages/LawyerDashboard";
+import ParticipantDashboard from "./pages/ParticipantDashboard";
 import { Route, Switch } from "react-router-dom";
 
 const App = () => {
