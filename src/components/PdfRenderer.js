@@ -1,29 +1,39 @@
-import React, {createRef, useState} from "react";
-// import {usePdf} from "@mikecousins/react-pdf";
+import React, {useState} from "react";
 import "./PdfRenderer.css";
-// import pdfjsLib from "pdfjs/lib/";
-// import pdfjsWorker from "pdfjs-dist/build/pdf.worker";
-import pdfjs from "@bundled-es-modules/pdfjs-dist/build/pdf";
-// import pdfjsworker from "@bundled-es-modules/pdfjs-dist/build/pdf.worker";
-import PDFJS from "pdfjs-dist/web/pdf_viewer";
+import {Document, Page, pdfjs} from "react-pdf";
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const PdfRenderer = ({pdf}) => {
-    const canvasRef = createRef();
     const [page, setPage] = useState(1);
-    pdf = atob(pdf.slice(pdf.indexOf("base64,") + 7));
+    const [numPages, setNumPages] = useState(null);
 
-    console.log(PDFJS);
+    const previousPage = () => {
+        if(page - 1 >= 1) {
+            setPage(page - 1);
+        }
+    };
+
+    const nextPage = () => {
+        if(page + 1 <= numPages) {
+            setPage(page + 1);
+        }
+    };
 
     return (
-        <div>
-            <canvas ref={canvasRef} className="pdf-canvas" />
-            {/*TODO: Page navigation*/}
-            {/*{pdfDocument.numPages && (*/}
-            {/*    <nav>*/}
-            {/*        <ul className="pager"*/}
-            {/*    </nav>*/}
-            {/*)}*/}
-        </div>
+        <>
+            <Document
+                file={pdf}
+                className="pdf-canvas"
+                onLoadSuccess={({numPages}) => setNumPages(numPages)}
+            >
+                <Page pageNumber={page} />
+            </Document>
+            <div className="pdf-controls-group">
+                <button onClick={previousPage}>Previous page</button>
+                <p>Page {page} / {numPages}</p>
+                <button onClick={nextPage}>Next page</button>
+            </div>
+        </>
     );
 }
 

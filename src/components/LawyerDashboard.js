@@ -1,7 +1,6 @@
 import React, {createRef, useState} from "react";
 import "./LawyerDashboard.css";
 import LogoutButton from "./LogoutButton";
-import {usePdf} from "@mikecousins/react-pdf";
 import PdfRenderer from "./PdfRenderer";
 
 let uploadedPdf = "";
@@ -9,16 +8,11 @@ let uploadedPdf = "";
 const LawyerDashboard = () => {
     // TODO: state and after "save" assign to uploadedPdf/redux
     const fileInputRef = createRef();
-    const [pdf, setPdf] = useState("");
+    const [pdfUrl, setPdfUrl] = useState("");
 
     const uploadPdf = e => {
         const uploadedFile = e.target.files[0];
-        const reader = new FileReader();
-
-        reader.readAsDataURL(uploadedFile);
-        reader.onload = () => {
-            setPdf(reader.result);
-        };
+        setPdfUrl(URL.createObjectURL(uploadedFile));
     };
 
     return (
@@ -35,7 +29,7 @@ const LawyerDashboard = () => {
 
             <div className="pdf-container">
                 <h2 className="text-center">Pdf</h2>
-                {pdf !== "" && <PdfRenderer pdf={pdf} />}
+                {pdfUrl !== "" && <PdfRenderer pdf={pdfUrl} />}
             </div>
             <div className="fields">
                 <h2 className="text-center">Fields</h2>
