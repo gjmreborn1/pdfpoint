@@ -23,6 +23,8 @@ Participant logs in, and:
 * React router
 * Bootstrap
 * Pdfjs
+* react-pdf
+* font awesome
 
 # Authorization
 Authorization is done by hard-coded two accounts for now.
