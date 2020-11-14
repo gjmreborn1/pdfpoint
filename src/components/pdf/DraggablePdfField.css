@@ -1,0 +1,14 @@
+.field-item {
+    border: 3px solid #aaa;
+    border-radius: 5px;
+    padding: 8px 0;
+
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    margin: 15px auto;
+}
+
+.field-item i {
+    color: seagreen;
+}

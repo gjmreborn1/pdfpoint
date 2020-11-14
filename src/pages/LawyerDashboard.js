@@ -2,6 +2,7 @@ import React, {createRef, useState} from "react";
 import "./LawyerDashboard.css";
 import LogoutButton from "../components/auth/LogoutButton";
 import PdfRenderer from "../components/pdf/PdfRenderer";
+import DraggablePdfField from "../components/pdf/DraggablePdfField";
 
 let uploadedPdf = "";
 
@@ -16,7 +17,6 @@ const LawyerDashboard = () => {
     };
 
     return (
-        // displaying pdf inside canvas --> fields ICONS
         <div>
             <h1 className="text-center">Pdfpoint</h1>
             <LogoutButton className="logout-btn" />
@@ -34,24 +34,9 @@ const LawyerDashboard = () => {
             <div className="fields">
                 <h2 className="text-center">Fields</h2>
                 <ul className="fields-list">
-                    <li>
-                        <div className="field-item">
-                            Email
-                            <i />
-                        </div>
-                    </li>
-                    <li>
-                        <div className="field-item">
-                            Signature
-                            <i />
-                        </div>
-                    </li>
-                    <li>
-                        <div className="field-item">
-                            Checkbox
-                            <i />
-                        </div>
-                    </li>
+                    <li><DraggablePdfField name="Email" icon="envelope" /></li>
+                    <li><DraggablePdfField name="Signature" icon="file-signature" /></li>
+                    <li><DraggablePdfField name="Checkbox" icon="check-square" /></li>
                 </ul>
             </div>
         </div>
