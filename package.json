@@ -8,6 +8,8 @@
     "@testing-library/user-event": "^12.1.10",
     "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
+    "jspdf": "^2.1.1",
+    "pdf-lib": "^1.11.2",
     "pdf-viewer-reactjs": "^2.1.2",
     "pdfjs-dist": "^2.5.207",
     "popper.js": "^1.16.1",

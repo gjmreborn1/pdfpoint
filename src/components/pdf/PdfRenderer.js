@@ -25,6 +25,7 @@ const PdfRenderer = ({pdf}) => {
                 file={pdf}
                 className="pdf-canvas"
                 onLoadSuccess={({numPages}) => setNumPages(numPages)}
+                options={{renderInteractiveForms: true}}
             >
                 <Page pageNumber={page} />
             </Document>
